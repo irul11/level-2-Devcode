@@ -14,11 +14,17 @@ export default new Vuex.Store({
   getters: {},
   mutations: {},
   actions: {
-    // TODO: Uncomment baris kode di bawah untuk membuat sebuah fungsi yang akan mengambil semua data kontak dari API
     async getAllContactsData() {
       return await axios.get(`${BASE_URL}/contacts`).catch((error) => {
         return error;
       });
+    },
+    async addNewContact(context, payload) {
+      return await axios
+        .post(`${BASE_URL}/contacts`, payload)
+        .catch((error) => {
+          return error;
+        });
     },
   },
   modules: {},
